@@ -1,3 +1,9 @@
+<?php
+
+phpinfo();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,3 +15,5 @@
     <h1>Je suis un test, avec aussi un test de git</h1>
 </body>
 </html>
+
+
