@@ -7,7 +7,8 @@ services:
     ports:
       - "8080:80"
     volumes:
-      - ./../website:/var/www/html/:z
+      - ./../website:/var/www/html/final:z
+      - ./../libs:/var/www/html/libs:z
       - ./exp:/var/www/html/exp:z
       - ./prod:/var/www/html/prod:z
   mysql:
