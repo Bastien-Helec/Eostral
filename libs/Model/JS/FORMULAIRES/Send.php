@@ -3,11 +3,13 @@
 class Send {
     private string $id_form;
     private string $path;
+    private string $resultpath;
 
 
-    public function __construct(string $id_form, string $path) {
+    public function __construct(string $id_form, string $path, string $resultpath) {
         $this->id_form = $id_form;
         $this->path = $path;
+        $this->resultpath = $resultpath;
     }
 
     public function Send(){
@@ -19,7 +21,6 @@ class Send {
                     event.preventDefault();
                     var Form_Data = new FormData(this);
                     let data = {};
-                    
                     var requete = new XMLHttpRequest();
                     requete.open('POST', '{$this->path}', true);
                     requete.onload = function() {
@@ -29,6 +30,11 @@ class Send {
                             const banner = document.getElementById(response['banner']['id']);
                             banner.textContent = response['banner']['message'];
                             banner.classList.add('actif');
+                            if (response.status === 'Success') {
+                            setTimeout(()=> {
+                                window.location.href = '{$this->resultpath}';
+                                }, 2000);
+                            }
                         } else {
                             console.error('Erreur de la requête : ' + requete.status + ' ' + requete.responseText);
                         }
@@ -41,7 +47,6 @@ class Send {
         });
         ";
     }
-
 
 }
 

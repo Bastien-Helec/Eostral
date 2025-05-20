@@ -2,25 +2,35 @@
 
 Class SQL_Select {
 
-    private string $params;
+    private string $field;
     private string $table;
-    private string $where;
 
-    public function __construct(string $params, string $table, string $where) {
-        $this->params = $params;
+    public function __construct(string $field, string $table) {
+        $this->field = $field;
         $this->table = $table;
-        $this->where = $where;
     }
 
-    public function getSQL(): string {
-        return "SELECT {$this->params} FROM {$this->table} WHERE {$this->where}";
+    public function get_SmplSQL(string $where): string {
+        return "SELECT {$this->field} FROM {$this->table} WHERE {$where}";
     }
 
-    public function execute(PDO $pdo): array {
-        $sql = $this->getSQL();
+    public function get_CmplxSQL(string $cdts): string {
+        return "SELECT {$this->field} FROM {$this->table} {$cdts}";
+    }
+
+    public function execute_Simple_SQL($where,PDO $pdo): array {
+        $sql = $this->get_SmplSQL($where);
         $stmt = $pdo->prepare($sql);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function execute_Cmplx_SQL($cdts, PDO $pdo): array {
+        $sql = $this->get_CmplxSQL($cdts);
+        $stmt = $pdo->prepare($sql);
+        // var_dump($stmt);
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 }
 

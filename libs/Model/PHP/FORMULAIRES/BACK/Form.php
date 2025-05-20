@@ -1,4 +1,7 @@
 <?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
@@ -26,7 +29,7 @@ class POST_FORM {
             // On verifie si le mot de passe est correct
             $cnx_sql = new SQL_Select('ID_Service,prenom,nom,mdp,email', 'Utilisateur', "email = '$email'");
             // echo $cnx_sql->getSQL();
-            $result = $cnx_sql->execute($this->pdo);
+            $result = $cnx_sql->execute_Simple_SQL( "email='$email'" ,$this->pdo);
             
 
             // On verifie si le mot de passe est correct
@@ -53,6 +56,7 @@ class POST_FORM {
                     if ($state_pass === true) {
                         $state_pass_mess = "Success";
                         $this->message = "Bienvenue, {$result[0]['prenom']} {$result[0]['nom']} $this->message";
+
                     } else {
                         $state_pass_mess = "Error";
                         $this->message = "Mot de passe incorrect";
@@ -64,11 +68,13 @@ class POST_FORM {
 
                 if ($state_mail_mess === "Success" && $state_pass_mess === "Success") {
                     $status = "Success";
+                    $_SESSION['email']= $email;
+                    $_SESSION['login_status'] = $status;
                 }else{
                     $status = "Error";
                 } 
 
-                echo json_encode([
+                $response = ([
                     'status' => $status,
                     'status_email' => $state_mail_mess,
                     'status_pass' => $state_pass_mess,
@@ -80,11 +86,12 @@ class POST_FORM {
                     'user' => [
                         'ID_Service' => $result[0]['ID_Service'],
                         'prenom' => $result[0]['prenom'],
-                        'nom' => $result[0]['nom']
+                        'nom' => $result[0]['nom'],
+                        'email' => $result[0]['email']
                     ]
                 ]);
             } else {
-                echo json_encode([
+                $response = ([
                     'status' => 'Error',
                     'message' => 'Identifiants invalides',
                     'banner' => [
@@ -93,7 +100,7 @@ class POST_FORM {
                     ]
                 ]);
             }
-        
+            echo json_encode($response);            
             exit;
         }
 
@@ -103,8 +110,6 @@ class POST_FORM {
             if (isset($_POST['Email']) && isset($_POST['Password']) && count($_POST) === 2) {
                 $this->auth();
             } 
-            
-            
             else {
                 echo json_encode([
                     'status' => 'error',

@@ -1,36 +1,34 @@
 <?php
 
-if(!empty ($div_data)){
-
-    echo "<div id='{$div_data['id']}' class='{$div_data['class']}'>";
+function render_element_DIV($div_data){
+    $html = "<div id='{$div_data['id']}' class='{$div_data['class']}'>";
     $bouton_html = '';
     $bouton_class = '';
-    
+
     foreach ($div_data['element'] as $element) {
-        // var_dump($element);
-        if ($element instanceof Logo ) {
-
+        if ($element instanceof Logo) {
             $data = $element->gen_logo();
-            echo '<img src="'.$data['src'].'" alt="" id="'.$data['id'].'" class="'.$data['class'].'"/>';
+            $html .= "<img src='{$data['src']}' alt='' id='{$data['id']}' class='{$data['class']}' />";
         }
-
-        if ($element instanceof Bouton) {
+        elseif ($element instanceof Bouton) {
             $data = $element->create_Bouton();
-            $bouton_class= $data['class'];
-            $bouton_html .= "<button id='{$data['id']}'> {$data['text']} </button>";
+            $bouton_class = $data['class'];
+            $bouton_html .= "<button id='{$data['id']}'>{$data['text']}</button>";
         }
-        if ($element instanceof Glob_Fields) {
-            $data = $element->gen_balise();
-            echo "<{$data['balise']} id='{$data['id']}' class='{$data['class']}'>{$data['text']}</{$data['balise']}>";
+        elseif ($element instanceof Glob_Fields) {
+            $html .= render_Glob_Fields($element->gen_balise()); // ✅ appel propre
         }
-
+        elseif ($element instanceof Div) {
+            $html .= render_element_DIV($element->gen_div()); // ✅ récursion propre
+        }
     }
 
-    if (!empty ($bouton_html)) {
-        echo "<div class='{$bouton_class}'> {$bouton_html} </div>";
+    if (!empty($bouton_html)) {
+        $html .= "<div class='{$bouton_class}'>{$bouton_html}</div>";
     }
-    echo "</div>";
 
+    $html .= "</div>";
+    return $html;
 }
 
 ?>

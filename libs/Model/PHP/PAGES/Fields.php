@@ -4,9 +4,9 @@ class Glob_Fields{
     private string $id;
     private string $class;
     private string $balise;
-    private string $text;
+    private string|array $text;
 
-    public function __construct(string $id, string $class, string $balise, string $text) {
+    public function __construct(string $id, string $class, string $balise, string|array $text) {
         $this->id = $id;
         $this->class = $class;
         $this->balise = $balise;
@@ -23,7 +23,5 @@ class Glob_Fields{
         ];
     }
 }
-
-
 
 ?>
