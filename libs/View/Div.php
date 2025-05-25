@@ -11,7 +11,7 @@ function render_element_DIV($div_data){
             $html .= "<img src='{$data['src']}' alt='' id='{$data['id']}' class='{$data['class']}' />";
         }
         elseif ($element instanceof Bouton) {
-            $data = $element->create_Bouton();
+            $data = $element->gen_Bouton();
             $bouton_class = $data['class'];
             $bouton_html .= "<button id='{$data['id']}'>{$data['text']}</button>";
         }

@@ -12,7 +12,7 @@ if (!empty($listeBDD)) {
         echo "<li id='$value' data-value='$value'>$libelle</li>";
     }
     echo "</ul>
-    <input type='hidden' id='".$idFormulaire."_".$nom_liste."choix_valeur' name='".$idFormulaire."_name_choix_valeur'/>
+    <input type='hidden' id='".$idFormulaire."_".$nom_liste."choix_valeur' id='".$idFormulaire."_name_choix_valeur'/>
     </div>";
 
 }

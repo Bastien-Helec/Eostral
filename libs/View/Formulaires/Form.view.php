@@ -72,7 +72,9 @@ if (!empty($formData)) {
             echo '</ul>';
 
             // On créer un champs caché poue l'envoi au gestionnaire de formulaire backend
-            echo '<input type="hidden" id= "'.$formData['id']. '_' . $element['nom_liste']. '_choix_valeur" name= "'.$formData['id']. '_name_choix_valeur"/>';
+            echo '<input type="hidden" id= "'.$formData['id']. '_' . $element['nom_liste']. '_choix_valeur" name= "'.$formData['id'].'_' . $element['nom_liste']. '_name_choix_valeur"/>
+            ';
+
             echo '</div>';
         }
     }

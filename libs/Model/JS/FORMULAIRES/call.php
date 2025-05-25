@@ -16,6 +16,7 @@ class JS_CALL_FORM {
             {$this->id_btn}.addEventListener('click', (event) => {
                 event.preventDefault();
                 {$this->id_div}.classList.add('actif');
+                {$this->id_div}.style.display='block';
                 setTimeout(() => {
                     {$this->id_div}.classList.add('deplacer');
                 }, 100);

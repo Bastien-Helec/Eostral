@@ -3,10 +3,9 @@
 class Send {
     private string $id_form;
     private string $path;
-    private string $resultpath;
+    private ?string $resultpath;
 
-
-    public function __construct(string $id_form, string $path, string $resultpath) {
+    public function __construct(string $id_form, string $path,?string $resultpath = null) {
         $this->id_form = $id_form;
         $this->path = $path;
         $this->resultpath = $resultpath;
@@ -30,9 +29,14 @@ class Send {
                             const banner = document.getElementById(response['banner']['id']);
                             banner.textContent = response['banner']['message'];
                             banner.classList.add('actif');
-                            if (response.status === 'Success') {
+                            if (response.Status === 'Success') {
                             setTimeout(()=> {
                                 window.location.href = '{$this->resultpath}';
+                                banner.classList.remove('actif');
+                                }, 2000);
+                            }else{
+                            setTimeout(()=> {
+                                banner.classList.remove('actif');
                                 }, 2000);
                             }
                         } else {
