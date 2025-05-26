@@ -10,7 +10,7 @@ $pages = (new Args_CSS('*'))
 $body = (new Args_CSS('body'))
     ->set('justify-content', 'center')
     ->set('align-items', 'center')
-    ->set('overflow', 'hidden')
+    // ->set('overflow', 'hidden')
     ->set('color','black');
 
 $h1 = (new Args_CSS('h1'))

@@ -1,10 +1,10 @@
 <?php
 
 // A propos
-$li_about =  new Glob_Fields('li_about','li','li','<a href="#"> A propos </a>');
+$li_about =  new Glob_Fields('li_about','li','li','<a href="?a_propos"> A propos </a>');
 
 // Histoire
-$li_story =  new Glob_Fields('li_story','li','li','<a href="#"> Notre Histoire </a>');
+$li_story =  new Glob_Fields('li_story','li','li','<a href="?notre_histoire"> Notre Histoire </a>');
 
 
 // Produits :
@@ -14,14 +14,14 @@ $Gammes = new Glob_Fields('Gammes', 'menu_produits', 'ul', [
 ]);
 
 $ul_gammes = new Glob_Fields('ul_gammes', 'ul_cls', 'ul', [
+    new Glob_Fields( '', 'l-deroulant', 'li', ['<a href= "#" > Nos Gammes </a>',
     $Gammes,
-    new Glob_Fields( '', 'l-deroulant', 'li', ['<a href= "#" > Nos Gammes </a>'
 ])
 ]);
 
 $Produit = new Glob_Fields('Produits', 'menu_produits', 'ul', [
+    new Glob_Fields( '', '', 'li', '<a href="?nos_produits"> Nos produits </a>'),
     $ul_gammes,
-    new Glob_Fields( '', '', 'li', '<a href="#"> Nos produits </a>'),
 ]);
 
 // Acceuil
