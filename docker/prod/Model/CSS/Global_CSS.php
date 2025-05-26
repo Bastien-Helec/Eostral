@@ -10,8 +10,9 @@ $pages = (new Args_CSS('*'))
 $body = (new Args_CSS('body'))
     ->set('justify-content', 'center')
     ->set('align-items', 'center')
-    // ->set('overflow', 'hidden')
-    ->set('color','black');
+    ->set('overflow', 'hidden')
+    ->set('margin', '0')
+    ->set('padding', '0');
 
 $h1 = (new Args_CSS('h1'))
     ->set('font-size', '2.5rem');
@@ -119,7 +120,5 @@ $global = [
 ];
 
 
-foreach ($global as $css) {
-    echo $css->gen_css();
-}
+
 ?>

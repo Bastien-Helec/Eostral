@@ -1,7 +1,7 @@
 <?php
 
-foreach ($global as $css) {
-    echo $css->gen_css();
-}
+require_once "CSS/global_view.php";
+require_once "CSS/header_view.php";
+require_once "CSS/navbar_view.php";
 
 ?>
