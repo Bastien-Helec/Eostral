@@ -1,7 +1,11 @@
 <?php
 
 function render_Glob_Fields(array $Glob_Fields): string {
-    $html = "<{$Glob_Fields['balise']} id='{$Glob_Fields['id']}' class='{$Glob_Fields['class']}'>";
+    if ($Glob_Fields['type'] === '' ){
+    $html = "<{$Glob_Fields['balise']} id='{$Glob_Fields['id']}' class='{$Glob_Fields['class']}' name='{$Glob_Fields['name']}'>";
+    } else {
+        $html = "<{$Glob_Fields['balise']} id='{$Glob_Fields['id']}' class='{$Glob_Fields['class']}' type='{$Glob_Fields['type']}' name='{$Glob_Fields['name']}'>";
+    }
 
     $text = $Glob_Fields['text'];
 

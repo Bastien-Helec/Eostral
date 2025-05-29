@@ -1,8 +1,8 @@
 <?php
 
-$video_histoire = new Div('video_div_histoire_ID', 'div_histoire_CLS', [
-    // Video 
-    new Glob_Fields('video_histoire_ID', 'video_histoire_CLS', 'video', '<video controls><source src="View/Video/histoire.mp4" type="video/mp4">Your browser does not support the video tag.</video>'),
+$gif_histoire = new Div('video_div_histoire_ID', 'div_histoire_CLS', [
+    //gif animé
+    new Glob_Fields('titre_histoire_ID', 'titre_histoire_CLS', 'h1', "L'histoire d'Eostral"),
 ]);
 
 $part_1 = new Div('part_1_histoire_ID', 'part_1_histoire_CLS', [
@@ -29,8 +29,9 @@ $part_3 = new Div('part_3_histoire_ID', 'part_3_histoire_CLS', [
     new Glob_Fields('texte_part3_histoire_ID', 'texte_part3_histoire_CLS', 'p', "Aujourd’hui, Eostral accompagne des structures variées : écoles rurales cherchant à héberger elles-mêmes leurs données, créateurs digitaux voulant échapper aux plateformes fermées, ou encore start-ups soucieuses d’intégrer un hébergement local et éthique. Mais ce n’est qu’un début. Demain, nous voulons bâtir un écosystème complet : matériel libre, applications interopérables, et un espace collaboratif où chacun peut contribuer. Nous croyons en un futur où la technologie est proche, visible, élégante, et nous avançons chaque jour comme Éos sur son char, traçant une voie dans le ciel numérique."),
 ]);
 
+
 $div_histoire = new Div('histoire_ID', 'histoire_CLS', [
-    $video_histoire,
+    $gif_histoire,
     $part_1,
     $part_2,
     $part_3

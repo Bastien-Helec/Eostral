@@ -4,14 +4,11 @@
 $pages = (new Args_CSS('*'))
     ->set('margin', '0')
     ->set('padding', '0')
-    ->set('box-sizing', 'border-box')
-    ->set('font-family', 'Montserrat, sans-serif');
+    ->set('box-sizing', 'border-box');
 
 $body = (new Args_CSS('body'))
     ->set('justify-content', 'center')
     ->set('align-items', 'center')
-    ->set('overflow', 'hidden')
-    ->set('margin', '0')
     ->set('padding', '0');
 
 $h1 = (new Args_CSS('h1'))
@@ -53,16 +50,9 @@ $bouton = (new Args_CSS('button'))
     ->set('all', 'unset')
     ->set('font-size', '16px')
     ->set('padding', '10px 20px')
-    ->set('color', '#33295E')
-    ->set('background-color', '#f8f9fa')
     ->set('border-radius', '5px')
     ->set('cursor', 'pointer')
     ->set('transition', 'all 0.3s ease');
-
-$bouton_hover = (new Args_CSS('button:hover'))
-    ->set('background-color', '#33295E')
-    ->set('color', '#f8f9fa');
-
 
 $select = (new Args_CSS('.select'))
     ->set('position', 'relative')
@@ -110,7 +100,6 @@ $global = [
     $form_input,
     $logo,
     $bouton,
-    $bouton_hover,
     $select,
     $select_ul,
     $select_ul_li,

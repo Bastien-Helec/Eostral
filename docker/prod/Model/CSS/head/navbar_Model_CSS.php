@@ -22,7 +22,7 @@ $menu_IDto_li_a = (new Args_CSS('#ul_menu > li a'))
 ->set('transition', 'background 0.3s');
 
 $menu_IDto_lito_ahover = (new Args_CSS('#ul_menu > li > a:hover'))
-->set('background', '#F8F9FA')
+->set('background-color', '#F8F9FA')
 ->set('color','#1A1A1A')
 ->set('border-radius', '5px');
 

@@ -1,12 +1,11 @@
 <?php
 
 $div_bienvenue = new Div('acceuil_ID', 'acceuil_CLS', [
-    new Logo('View/Eostral_Logo.png', 'acceuil_logo_ID', 'logo'),
     new Glob_Fields('acceuil_part1_ID', 'acceuil_CLS', 'h1', 'Bienvenue sur Eostral'),
 
     new Glob_Fields('acceuil_intro_ID', 'acceuil_CLS', 'h2', "L'innovation est au coeur de notre travail ce qui fait que nous avons l'obligation de toujours être a la pointe de la technologie."),
 
-    new Glob_Fields('acceuil_part2_ID', 'acceuil_CLS', 'h2', "Chez Eostral, on réinvente la concpetion du cloud"),
+    new Glob_Fields('acceuil_part2_ID', 'acceuil_CLS', 'h2', "Chez Eostral, on réinvente la concepetion du cloud"),
 
     new Glob_Fields('acceuil_part3_ID', 'acceuil_CLS', 'h2', "'ECMobile', Une conception de notre main ou encore EosPhone sont des programmes visant a exporter le cloud local partout simplement tout en offrant une grande portabilité. "),
 
@@ -52,7 +51,7 @@ $div_nouveautés_produits = new Div(
 
 // Création de la page d'accueil
 
-$acceuil = new Div('acceuil_ID', 'acceuil_CLS', [
+$acceuil = new Div('home_ID', 'home_CLS', [
     $div_bienvenue,
     $div_nouveautés_produits
 ]);
