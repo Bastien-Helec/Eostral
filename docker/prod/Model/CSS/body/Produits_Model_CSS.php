@@ -29,7 +29,7 @@ $produits_list = (new Args_CSS('#produits_list_ID'))
     ->set('font-size', '1.5em')
     ->set('gap', '20px');
 
-$produit_content = (new Args_CSS('#produit1_ID, #produit2_ID, #produit3_ID , #no_result_ID'))
+$produit_content = (new Args_CSS('#produit_ID'))
     ->set('border', '1px solid #ccc')
     ->set('width','100%')
     ->set('border-radius', '35px')
@@ -80,6 +80,22 @@ $button_submithover = (new Args_CSS('#btn_submit_text_ID:hover'))
     ->set('background-color', '#F8F9FA') // couleur de fond du bouton au survol
     ->set('color', '#5A7FA6'); // couleur du texte du bouton au survol
 
+$ajouter_panier = (new Args_CSS('.ajouter_panier_CLS'))
+    ->set('position', 'relative') 
+    ->set('left', '60%') // positionne le bouton à droite du produit
+    ->set('background-color', '#FFD1A9') // couleur de fond du bouton
+    ->set('color', '#5A7FA6') // couleur du texte du bouton
+    ->set('border', 'none')
+    ->set('padding', '10px 20px')
+    ->set('border-radius', '5px')
+    ->set('cursor', 'pointer');
+
+$ajouter_panier_hover = (new Args_CSS('#ajouter_panier_ID:hover'))
+    ->set('background-color', '#5A7FA6') // couleur de fond du bouton au survol
+    ->set('color', '#F8F9FA') // couleur du texte du bouton au survol
+    ->set('transform', 'scale(1.05)') // effet de zoom au survol
+    ->set('box-shadow', '0 4px 8px rgba(0, 0, 0, 0.2)'); // ombre portée au survol
+
 $produit_css = [
     $body,
     $div_filtre,
@@ -93,7 +109,9 @@ $produit_css = [
     $produit,
     $produit_hover,
     $button_submit,
-    $button_submithover
+    $button_submithover,
+    $ajouter_panier,
+    $ajouter_panier_hover
 ];
 
 ?>

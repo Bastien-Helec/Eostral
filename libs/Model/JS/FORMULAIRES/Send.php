@@ -24,8 +24,10 @@ class Send {
                     requete.open('POST', '{$this->path}', true);
                     requete.onload = function() {
                         if (requete.status === 200) {
+                            console.log(requete.responseText);
                             var response = JSON.parse(requete.responseText);
                             console.log(response);
+                            console.log(response['banner']);
                             const banner = document.getElementById(response['banner']['id']);
                             banner.textContent = response['banner']['message'];
                             banner.classList.add('actif');

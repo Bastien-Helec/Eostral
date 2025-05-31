@@ -37,6 +37,7 @@ Class Glob_Handling extends BaseForm {
             $cdts_db= null;
             $insert_sql->execute_Simple_SQL($values, $this->pdo);
             
+
             echo json_encode ([
                 'Status' =>'Success',
                 'message' => "$values, Ajouté avec succés dans $db_table",
@@ -79,9 +80,12 @@ Class Glob_Handling extends BaseForm {
         else {
             echo json_encode([
                 'Status' => 'Error',
-                'message' => 'Erreur de traitement'
+                'message' => 'Erreur de traitement',
+                'banner' => [
+                    'id' => $this->id_banner,
+                    'message' => 'Erreur de traitement'
+                ]
             ]);
-            exit;
         }
     }
 

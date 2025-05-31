@@ -14,6 +14,14 @@ $cnx_txt = (new Args_CSS('#cnx_txt_ID'))
 ->set('font-size', '1.5em')
 ->set('text-align', 'center');
 
+$cnx_txt_hover = (new Args_CSS('#cnx_txt_ID:hover'))
+->set('color', 'white')
+->set('background-color', '#A1A1A1')
+->set('border-radius', '10px')
+->set('padding', '5px')
+->set('transition', 'background-color 0.3s, color 0.3s');
+
+
 $cnx_header = (new Args_CSS('#cnx_header_ID'))
 // Mettre a droite tout le contenu a droite de la page
 ->set('position', 'absolute')
@@ -49,6 +57,7 @@ $header = [
     $cnx_header,
     $head,
     $header_eostral,
+    $cnx_txt_hover
 ]
 
 

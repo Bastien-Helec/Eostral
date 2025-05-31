@@ -8,4 +8,7 @@ require_once "CSS/histoire_CSS_view.php";
 require_once "CSS/produits_CSS_view.php";
 require_once "CSS/a_propos_CSS_view.php";
 require_once "CSS/footer_CSS_view.php";
+require_once "CSS/compte_CSS_view.php";
+require_once "CSS/403_CSS_view.php";
+require_once "CSS/admin_CSS_view.php";
 ?>
