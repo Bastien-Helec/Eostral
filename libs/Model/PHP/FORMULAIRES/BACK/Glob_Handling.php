@@ -19,19 +19,16 @@ Class Glob_Handling extends BaseForm {
             }
         }
 
-        foreach ($F_names as $f) {
-            if (isset($_POST[$f])) {
-                if ($_POST[$f] === null || $_POST[$f] === '') {
-                } else {
-                    $values .= "$_POST[$f],";
-                    $values=str_replace(' ', '_' , $values);
-                }
-            }
-        }
-        
+$values = '';
+foreach ($F_names as $f) {
+    if (isset($_POST[$f]) && $_POST[$f] !== null && $_POST[$f] !== '') {
+        $val = str_replace("'", "''", $_POST[$f]);  // échappement simple
+        $values .= "'$val',";  // chaque valeur entre quotes
+    }
+}
+$values = rtrim($values, ',');
+      
         if (isset($values) && $values !==null) {
-            $values = rtrim($values,',');
-            
             $insert_sql = new SQL_Insert($db_columns,$db_table);
             if($cdt_plus === null) {
             $cdts_db= null;

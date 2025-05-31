@@ -13,6 +13,8 @@ class JS_CALL_FORM {
 
     public function gen_print_FORM_js() : string {
         return "
+        let {$this->id_btn} = document.getElementById('{$this->id_btn}');
+        if ({$this->id_btn}) {
             {$this->id_btn}.addEventListener('click', (event) => {
                 event.preventDefault();
                 {$this->id_div}.classList.add('actif');
@@ -21,7 +23,8 @@ class JS_CALL_FORM {
                     {$this->id_div}.classList.add('deplacer');
                 }, 100);
                 {$this->banner}.classList.remove('actif');
-                });"
+                });
+    }"
             ;
     }
 }

@@ -2,7 +2,7 @@
 
 $div_global_html_css= (new Args_CSS('#admin_global_ID'))
     ->set('display', 'flex')
-    ->set('flex-direction', 'row') // ⚠️ remplace "column" par "row"
+    ->set('flex-direction', 'row') 
     ->set('justify-content', 'space-around') // pour les espacer proprement
     ->set('align-items', 'flex-start')       // optionnel selon ton besoin
     ->set('box-sizing', 'border-box')

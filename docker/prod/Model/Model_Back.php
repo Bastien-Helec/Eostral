@@ -30,7 +30,32 @@ switch ($_POST['form_id']){
     $modif = new Update('banner', '', $pdo_cnx);
     $modif->set_update(['Prenom','Email', 'Nom'], 'User', 'ID= "'.$_SESSION['id'].'"');
         break;
-}
+
+    case 'Modifier_user_admin':
+        if (isset($_GET['admin'])){
+            $update = new Update('banner', 'Sur Esotral', $pdo_cnx);
+            $update->set_update(['Nom', 'Prenom', 'Email'], 'User', 'ID = "'.$_SESSION['user_admin_ID'].'"');
+            
+        }
+        break;
+
+    case 'Modifier_produit_admin':
+        if (isset($_GET['modifier_produit'])) {
+            $update = new Update('banner', 'Sur Esotral', $pdo_cnx);
+            $update->set_update(['Nom', 'Description', 'Prix', 'Model', 'MotsCles', 'Qte'], 'Produits', 'ID = "'.$_SESSION['produit_admin_ID'].'"');
+        }
+        break;
+    case 'ajout_produit':
+        $insert = new Glob_Handling('banner', 'Sur Esotral', $pdo_cnx);
+        $insert->FORM_Interact('Produits', 'Nom,Description,Prix,Model,MotsCles,Qte', 
+        ['Nom', 'Description', 'Prix', 'Model', 'MotsCles', 'Qte'], 
+        [],);
+        break;
+
+    }
+
+
+
 
 
 }

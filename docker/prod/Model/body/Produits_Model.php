@@ -8,13 +8,13 @@ $header_produits = new Div('body_ID', 'body_CLS', [
 
 // Generation des produits par BDD
 
-$produits_select = new SQL_SELECT ('type.libelle as type, Nom, Prix, Model, Prix, Description,MotsCles' , 'Produits');
+$produits_select = new SQL_SELECT ('Nom, Prix, Model, Prix, Description,MotsCles' , 'Produits');
 
-$produit=$produits_select->execute_Cmplx_fetchAll_SQL('JOIN Type type ON Produits.IDType = type.ID ', $pdo_cnx);
+$produit=$produits_select->execute_Cmplx_fetchAll_SQL('', $pdo_cnx);
 
 // Commence a faire nos affichage de produits 
 
-
+// var_dump($produit); // Pour debug, à enlever en prod
 $info_produit = [];
 
 foreach ($produit as $produit) { // ← tableau brut, pas des objets Glob_Fields
@@ -22,7 +22,6 @@ foreach ($produit as $produit) { // ← tableau brut, pas des objets Glob_Fields
         'Nom' => $produit['Nom'],
         'Description' => $produit['Description'],
         'Model' => $produit['Model'],
-        'Type' => $produit['type'],
         'Prix' => $produit['Prix'],
         'MotsCles' => strtolower($produit['MotsCles']),
     ];
@@ -35,11 +34,11 @@ foreach ($produit as $produit) { // ← tableau brut, pas des objets Glob_Fields
 // FILTRE
 
 
-$select_by_type = new Glob_Fields('select_by_type_ID', 'select_by_type_CLS', 'select',
-    '
-    <option value="">Tous </option>
-    <option value="serveur mobile">Serveur Mobile</option>
-     <option value="serveur">Serveur</option>', '', 'type');
+// $select_by_type = new Glob_Fields('select_by_type_ID', 'select_by_type_CLS', 'select',
+//     '
+//     <option value="">Tous </option>
+//     <option value="serveur mobile">Serveur Mobile</option>
+//      <option value="serveur">Serveur</option>', '', 'type');
 
      
 $range_min_prix = new Glob_Fields('range_min_prix_ID', 'range_min_prix_CLS', 'div', 
@@ -63,7 +62,7 @@ $btn_submit = new Glob_Fields('btn_submit_ID', 'btn_submit_CLS', 'div',
 
 
 $filtre = new Glob_Fields('filtre_ID', 'filtre_CLS', 'form', [
-    $select_by_type,
+    // $select_by_type,
     $range_min_prix,
     $range_max_prix,
     $search_text,
@@ -92,9 +91,9 @@ $data = [];
 $data = [];
 
 foreach ($info_produit as $item) {
-    if ($type_filtre !== '' && strtolower($item['Type']) !== str_replace('serv_', '', $type_filtre)) {
-        continue;
-    }
+    // if ($type_filtre !== '' && strtolower($item['Type']) !== str_replace('serv_', '', $type_filtre)) {
+    //     continue;
+    // }
 
     $prix = (int) filter_var($item['Prix'], FILTER_SANITIZE_NUMBER_INT);
     if ($prix < $min_prix || $prix > $max_prix) {

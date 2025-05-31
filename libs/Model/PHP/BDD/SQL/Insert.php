@@ -10,7 +10,7 @@ Class SQL_Insert {
     }
 
     private function add_SmplSQL(string $val) {
-        return "INSERT INTO {$this->table}({$this->columns}) VALUES ('{$val}')";
+        return "INSERT INTO {$this->table}({$this->columns}) VALUES ({$val})";
     } 
 
     private function add_CmplxSQL(string $val,string $cdt_plus,string $cdts){

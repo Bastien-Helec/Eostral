@@ -3,12 +3,21 @@ require_once "Model/Model.php";
 require_once "ConnexionController.php";
 require_once "InscriptionController.php";
 require_once "ModifierUtilisateurController.php";
+require_once(__DIR__ . '/../Model/Formulaire/Ajout_produit.php');
+require_once(__DIR__ . '/../Model/Formulaire/Ajout_utilisateur.php');
+require_once(__DIR__ . '/../Model/Formulaire/Modifier_utilisateur_admin.php');
 
 $formData= [
     'Connexion' => $ConnexionData,
     'Inscription' => $InscriptionData,
     'Modifier' => $ModifierData,
 ];
+
+if (isset($_SESSION['IDRoles']) && $_SESSION['IDRoles'] === 1){
+    $formData['Ajout_produit'] = $Ajout_produitData;
+    $formData['Ajout_utilisateur'] = $InscriptionAdminData;
+    $formData['Modifier_utilisateur_admin'] = $ModifierAdminData;
+}
 
 foreach ($formData as $formname => $formData){
     require __DIR__ . '/../../libs/View/Formulaires/Form.view.php';
