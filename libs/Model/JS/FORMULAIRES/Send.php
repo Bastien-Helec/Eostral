@@ -25,21 +25,31 @@ class Send {
                     requete.onload = function() {
                         if (requete.status === 200) {
                             console.log(requete.responseText);
+                            if (requete.responseText.trim().length === 0) {
+                            console.error('Réponse vide du serveur, JSON attendu.');
+                            return;
+                        }
+                            try {
                             var response = JSON.parse(requete.responseText);
-                            console.log(response);
-                            console.log(response['banner']);
-                            const banner = document.getElementById(response['banner']['id']);
-                            banner.textContent = response['banner']['message'];
-                            banner.classList.add('actif');
-                            if (response.Status === 'Success') {
-                            setTimeout(()=> {
-                                window.location.href = '{$this->resultpath}';
-                                banner.classList.remove('actif');
-                                }, 2000);
-                            }else{
-                            setTimeout(()=> {
-                                banner.classList.remove('actif');
-                                }, 2000);
+                        } catch(e) {
+                        console.error('Erreur de parsing JSON :', e);
+                        console.error('Réponse reçue:', requete.responseText);
+                        return;
+                        }
+                        console.log(response);
+                        console.log(response['banner']);
+                        const banner = document.getElementById(response['banner']['id']);
+                        banner.textContent = response['banner']['message'];
+                        banner.classList.add('actif');
+                        if (response.Status === 'Success') {
+                        setTimeout(() => {
+                            window.location.href = '{$this->resultpath}';
+                            banner.classList.remove('actif');
+                        }, 2000);
+                    } else {
+                        setTimeout(() => {
+                        banner.classList.remove('actif');
+                            }, 2000);
                             }
                         } else {
                             console.error('Erreur de la requête : ' + requete.status + ' ' + requete.responseText);

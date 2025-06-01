@@ -53,8 +53,42 @@ echo $ajout_produit_remove_JS->gen_remove_js();
 
 $send_ajout_produit = new Send('ajout_produit_form', 'Model/Model_Back.php');
 $send_ajout_produit->Send();
+
+$ajouter_utilisateur = new JS_CALL_FORM('ajout_utilisateur_div', 'ajout_user_admin_ID', 'banner');
+echo $ajouter_utilisateur->gen_print_FORM_js();
+
+$ajouter_utilisateur_remove_JS = new JS_Remove_Event('ajout_utilisateur_div', 'ajout_user_admin_ID');
+echo $ajouter_utilisateur_remove_JS->gen_remove_js();
+
+$send_ajouter_utilisateur = new Send('ajout_utilisateur_form', 'Model/Model_Back.php');
+$send_ajouter_utilisateur->Send();
+
+$Modifier_utilisateur_admin = new JS_CALL_FORM('modifier_utilisateur_admin_div', 'Modifier_user_admin', 'banner');
+echo $Modifier_utilisateur_admin->gen_print_FORM_js();
+
+$Modifier_utilisateur_admin_remove_JS = new JS_Remove_Event('modifier_utilisateur_admin_div', 'Modifier_user_admin');
+echo $Modifier_utilisateur_admin_remove_JS->gen_remove_js();
+
+$send_modifier_utilisateur_admin = new Send('modifier_utilisateur_admin_form', 'Model/Model_Back.php');
+$send_modifier_utilisateur_admin->Send();
+
+$Modifier_produit = new JS_CALL_FORM('modifier_produit_div', 'Modifier_produit_admin', 'banner');
+echo $Modifier_produit->gen_print_FORM_js();
+
+$Modifier_produit_remove_JS = new JS_Remove_Event('modifier_produit_div', 'Modifier_produit_admin');
+
+echo $Modifier_produit_remove_JS->gen_remove_js();
+
+$send_modifier_produit = new Send('modifier_produit_form', 'Model/Model_Back.php');
+$send_modifier_produit->Send();
+
+
 }
+
+
+
 }
+
 
 
 

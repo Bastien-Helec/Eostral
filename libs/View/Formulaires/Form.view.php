@@ -26,6 +26,7 @@ if (!empty($formData)) {
     echo "<form id='{$formData['id']}_form'>";
     echo '<input type="hidden" name="form_id" value="'.$formData['id'].'">';
     
+    
     /* Nos données sont stocker dans un tableau $formData. 
     - On va donc recuperer les données pour nos besoin specifiques
 

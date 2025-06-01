@@ -12,12 +12,15 @@ class Fields implements FormElement {
     private string $type;
     private string $placeholder;
     private bool $requis;
+    private ?string $value;
 
-    public function __construct(string $nom, string $type, string $placeholder, bool $requis) {
+
+    public function __construct(string $nom, string $type, string $placeholder, bool $requis, ?string $value = null) {
         $this->nom = $nom;
         $this->type = $type;
         $this->placeholder = $placeholder;
         $this->requis = $requis;
+        $this->value = $value;
     }
 
     public function getNom(): string {
@@ -66,7 +69,8 @@ class Fields implements FormElement {
             'nom' => $this->nom,
             'type' => $this->type,
             'placeholder' => $this->placeholder,
-            'requis' => $this->requis
+            'requis' => $this->requis,
+            'value' => $this->value
         ];
     }
 }

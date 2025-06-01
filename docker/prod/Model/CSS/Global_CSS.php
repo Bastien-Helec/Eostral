@@ -34,6 +34,7 @@ $formulaire = (new Args_CSS('.Formulaire'))
 $form_actif = (new Args_CSS('.Formulaire.actif'))
     ->set('opacity', '1')
     ->set('top', '50%')
+    ->set('position', 'fixed')
     ->set('visibility', 'visible');
 
 $form_h2 = (new Args_CSS('.Formulaire h2'))

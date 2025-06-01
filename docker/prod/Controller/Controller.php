@@ -6,6 +6,8 @@ require_once "ModifierUtilisateurController.php";
 require_once(__DIR__ . '/../Model/Formulaire/Ajout_produit.php');
 require_once(__DIR__ . '/../Model/Formulaire/Ajout_utilisateur.php');
 require_once(__DIR__ . '/../Model/Formulaire/Modifier_utilisateur_admin.php');
+require_once(__DIR__ . '/../Model/Formulaire/Modifier_produit.php');
+
 
 $formData= [
     'Connexion' => $ConnexionData,
@@ -17,6 +19,7 @@ if (isset($_SESSION['IDRoles']) && $_SESSION['IDRoles'] === 1){
     $formData['Ajout_produit'] = $Ajout_produitData;
     $formData['Ajout_utilisateur'] = $InscriptionAdminData;
     $formData['Modifier_utilisateur_admin'] = $ModifierAdminData;
+    $formData['Modifier_produit'] = $Modifier_produitData;
 }
 
 foreach ($formData as $formname => $formData){
