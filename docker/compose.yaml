@@ -1,0 +1,37 @@
+version: '3.8'
+
+services:
+  php-8.3-apache:
+    build: .
+    container_name: php-InMai
+    ports:
+      - "8080:80"
+    volumes:
+      - ./../website:/var/www/html/final:z
+      - ./../libs:/var/www/html/libs:z
+      - ./exp:/var/www/html/exp:z
+      - ./prod:/var/www/html/prod:z
+  mysql:
+    image: mariadb:latest
+    container_name: DB_InMai
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: test
+      MYSQL_PASSWORD: root
+      MYSQL_DATABASE: db_init
+    volumes:
+      - ./db_mysql/:/var/lib/mysql:z
+    ports:
+      - "3306:3306"
+
+  phpmyadmin:
+    image: phpmyadmin:latest
+    container_name: DBManager_InMai
+    environment:
+      PMA_HOST: mysql
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - "3356:80"
+
+
+
