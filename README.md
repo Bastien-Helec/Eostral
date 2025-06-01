@@ -4,6 +4,18 @@ Eostral est une entreprise grandissante visant à révolutionner le domaine du c
 ---
 Eostral is a growing company aiming to revolutionize the field of cloud computing and mobile ranges with the launch of their own mobile devices capable of integrating a specialized format for the cloud and servers called QuantIA. This company intends to take the lead in the future of IT hosting.
 
+
+
+## Utilisation : 
+Afin de pouvoir utiliser le site, vous pouvez soit récuperer le code de website et l'implementer dans votre serveur mais il faudra également récuperer la libs a le meme position qu'actuellement (exterieur de website) ,sinon le site ne fonctionnera pas. 
+
+autrement vous avez juste a lancer le compose dans la partie docker.
+```bash
+docker compose up -d
+```
+Il faudra également modifier pdo.php afin de pouvoir se connecter a la base de donnée.
+
+
 # WARNING :
 
 Ceux-ci est un travail d'Evaluation de ma Formation ce n'est en rien un projet réel et ne doit pas être pris comme tel, par contre l'idée de ce projet est réel et **j'en garde la propriété intellectuelle, je ne souhaite pas que ce projet soit utilisé à des fins commerciales ou autres sans mon accord.**
@@ -21,3 +33,4 @@ In the event that the idea is used without my consent, I reserve the right to fi
 Additionally, if it is used for commercial purposes, I also reserve the right to request compensation for the use of this idea.
 
 
+---

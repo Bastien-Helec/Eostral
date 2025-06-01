@@ -1,0 +1,16 @@
+## Librairie du site :
+
+J'ai choisi d'utiliser ma libraire personelle afin de me faciliter le developpement du site, non sans quelques modifications.
+
+Tout est gerer en php (JS,CSS, et bien sur HTML) via le header(content-type)
+
+
+## Utilisation : 
+Afin de pouvoir utiliser le site, vous pouvez soit récuperer le code de website et l'implementer dans votre serveur mais il faudra également récuperer la libs a le meme position qu'actuellement (exterieur de website) ,sinon le site ne fonctionnera pas. 
+
+autrement vous avez juste a lancer le compose dans la partie docker.
+```bash
+docker compose up -d
+```
+
+Il faudra également modifier pdo.php afin de pouvoir se connecter a la base de donnée.
